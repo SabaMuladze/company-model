@@ -14,9 +14,15 @@ class Employee:
 
 class Developer(Employee):
     increase_percent = 1.2
-    def __init__(self, first, last, salary,language):
+    def __init__(self, first, last, salary,skills):
       super().__init__(first, last, salary)
-      self.language = language
+      self.skills = skills
+
+    def show_skills(self):
+        print(f"###### {self.first} {self.last}'s skills are:")
+        for skill in self.skills:
+            print(skill)
+        print('######')
           
 
 class Manager(Employee):
@@ -50,11 +56,12 @@ print(employee1)
 employee1.increase_salary()
 print(employee1.salary)
 #test Developer part
-developer1 = Developer('Givi','Pailodze',6000,'Python')
-developer2 = Developer('Mariam','Nozadze',6100,'JS')
+developer1 = Developer('Givi','Pailodze',6000,['Python','Flask','Selenium'])
+developer2 = Developer('Mariam','Nozadze',6100,['JS','HTML','CSS','React'])
 print(developer1)
 developer1.increase_salary()
 print(developer1.salary)
+developer1.show_skills()
 # test Manager part
 manager1 = Manager('Sofo','Menejerishvili',5500,[developer1])
 print(manager1)
